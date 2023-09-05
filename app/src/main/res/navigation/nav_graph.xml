@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+
+    <action
+        android:id="@+id/action_to_image_viewer"
+        app:destination="@+id/imageViewerFragment" />
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.sw.navcomprepeat.ui.fragment.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_next"
+            app:destination="@id/nextFragment" />
+        <action
+            android:id="@+id/action_home_self"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="path"
+            android:defaultValue="null"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nextFragment"
+        android:name="com.sw.navcomprepeat.ui.fragment.NextFragment"
+        android:label="Next"
+        tools:layout="@layout/fragment_next">
+
+        <argument
+            android:name="msg"
+            android:defaultValue="Hellp"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageViewerFragment"
+        android:name="com.sw.navcomprepeat.ui.fragment.ImageViewerFragment"
+        android:label="ImageViewerFragment"
+        tools:layout="@layout/fragment_image_viewer"
+        >
+
+        <argument
+            android:name="path"
+            app:argType="string" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.sw.navcomprepeat.ui.fragment.GalleryFragment"
+        android:label="GalleryFragment" />
+
+</navigation>
